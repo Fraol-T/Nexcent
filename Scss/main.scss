@@ -1,2 +1,441 @@
 @use 'typo' as *;
 @use 'variables' as *;
+@use 'mixins' as *;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+body{
+    width: 100%;
+}
+nav{
+        width: 100%;
+        height: 84px;
+        @include flex_center(row){
+            justify-content: space-between
+        };
+        padding: 22px 100px 22px 70px;
+        img{
+            width: 154px;
+            height: 24px;
+            margin-right: 40px;
+        }
+        ul{
+            @include flex_center(row);
+            li{
+                list-style: none;
+            };
+        }
+        .nav_links{
+            width: 588px;
+            height: 24px;
+            justify-content: space-around;
+            @include r2;
+        }
+        .login_signup{
+            gap: 14px;
+            @include r3;
+            li{
+                a{
+                    text-decoration: none;
+                }
+            }
+            :first-child{
+                width: 77px;
+                height: 40px;
+                @include flex_center(row){
+
+                };
+                a{
+                    color: $primary;
+                }    
+            }
+            :nth-child(2){
+                width: 99px;
+                height: 40px;
+                background-color: $primary;
+                @include flex_center(row);
+                a{
+                    color: $white;
+                }
+            }
+        }
+}
+header{
+    @include grid_template(columns, 2);
+    width: 100%;
+    height: 599px;
+    padding: 96px 144px;
+    background-color: $silver;
+    .hero{
+        width: 657px;
+        height: 276px;
+        h1{
+            @include h1;
+            color: $grey;
+            span{
+                color: $primary;
+            }
+        }
+        p{
+            @include r2;
+            color: $grey;
+            margin-bottom: 32px;
+        }
+        div{
+            width: 128px;
+            height: 52px;
+            background-color: $primary;
+            @include flex_center(row);
+            border-radius: 4px;
+            a{
+                @include a_button($white);
+            }
+        }
+    }
+    
+}
+.clients{
+    height: 190px;
+    margin: 40px 0px;
+    @include flex_center(column);
+    h2{
+        @include h2;
+        color: $grey;
+        margin-bottom: 8px; 
+    }
+    p{
+        @include r2;
+        color: $grey;
+    }
+    .clients_logo{
+        width: 1152px;
+        margin-top: 16px;
+        ul{
+            @include flex_gap(row, 0px, space-between);
+            list-style: none;
+        }
+    }
+}
+.community{
+    height: 416px;
+    margin-bottom: 42px;
+    @include flex_center(column);
+    h2{
+        @include h2;
+        color: $grey; 
+        width: 542px;
+        text-align: center;
+        margin-bottom: 8px; 
+    }
+    p{
+        @include r2;
+        color: $grey;
+    }
+    .community_category{
+        @include flex_gap(row, auto, space-between);
+        width: 100%;
+        height: 280px;
+        padding: 0px 144px;;
+        .community_category_card{
+            @include flex_center(column);
+            width: 299px;
+            height: 260px;
+            img{
+                width: 65px;
+                height: 56px;
+            }
+            h3{
+                @include h3;
+                color: $grey;
+                margin: 16px 0px 8px 0px;
+                text-align: center
+            }
+            p{
+                @include r3;
+                color: $grey;
+                text-align: center;
+            }
+
+        }
+    }
+}
+main{
+    .unlock{
+        @include flex_gap(row, 49px, none);
+        padding: 0px 144px;
+        margin-bottom: 48px;
+        .unlock_text{
+            h2{
+                @include h2;
+                color: $grey;
+                width: 601px;
+                height: 88px;
+                margin-bottom: 16px;
+            }
+            p{
+                @include r3;
+                color: $grey;
+                width: 601px;
+                height: 88px;
+                margin-bottom: 32px;
+            }
+            div{
+                width: 151px;
+                height: 52px;
+                background-color: $primary;
+                @include flex_center(row);
+                border-radius: 4px;
+                a{
+                    @include a_button($white);
+                }
+            }
+        }
+    }
+    .achievements{
+        background-color: $silver;
+        @include grid_template(columns, 2);
+        padding: 0px 144px;
+        height: 288px;
+        .heading{
+            width: 540px;
+            height: 120px;
+            h2{
+                @include h2;
+                color: $grey;
+                padding-bottom: 8px;
+                width: 408px;
+                span{
+                    color: $primary;
+                }
+            }
+            p{
+                @include r2;
+                color: $dark_grey;
+            }
+        }
+        .count{
+            @include grid_template(columns, 2);    
+            gap: 40px;
+            width: 540px;
+            height: 160px;
+            .count_box{
+                width: 255px;
+                height: 60px;
+                @include flex_center(row){
+                    gap: 16px;
+                };
+                .count_box_img{
+                    width:48px;
+                    height: 48px;      
+                }
+                .count_box_content{
+                    h3{
+                        @include h3;
+                        color: $grey;
+                    }
+                    p{
+                        @include r2;
+                        color: $grey;
+                    }
+                }
+            }
+        }
+    }
+    .guide{
+        @include grid_template(columns, 2);
+        padding: 0px 144px;
+        margin-bottom: 48px;;
+        .guid_description{
+            width: 661px;
+            height: 308px;
+            h2{
+                @include h2;
+                color: $grey;
+                margin-bottom: 16px;;
+            }
+            p{
+                @include r3;
+                color: $grey;
+                margin-bottom: 32px;
+            }
+            .learn_more{
+                width: 151px;
+                height: 52px;
+                background-color: $primary;
+                @include flex_center(row);
+                border-radius: 4px;
+                a{
+                    @include a_button($white);
+                }
+            }
+        }
+    }
+    .customers{
+        @include grid_template(columns, 2);
+        padding: 0px 144px;
+        gap: 72px;
+        background-color: $silver;
+        margin-bottom: 48px;
+        
+        .customer_content{
+            width: 748px;
+            
+            p{
+                @include m2;
+                color: $grey;
+                margin-bottom: 16px; 
+            }
+            h4{
+                @include h4;
+                color: $primary;
+                margin-bottom: 8px;
+            }
+            p{
+                @include r2;
+                color: $grey;
+                margin-bottom: 32px;
+            }
+            .customer_list{
+                @include flex_gap(row, auto, space-around);
+                a{
+                    @include a_button($primary);
+                    @include h4;
+                    @include flex_center(none);
+                }
+            }
+        }
+
+    }
+    .community{
+        margin-bottom: 94px;
+        h2{
+            @include h2;
+            color: $grey;
+            margin-bottom: 8px;
+        }
+        p{
+            @include r2;
+            color: $grey;
+            text-align: center;
+            width: 628px;
+        }
+        .community_description_container{
+            height: 366px;
+            @include grid_template(columns, 3);
+            padding: 0px 144px;
+            gap: 72px;
+            .community_description{
+                width: 317px;
+                height: 176px;
+                padding: 16px;
+                background-color: $silver;
+                box-shadow: $s4;
+                border-radius: 8px;
+                @include flex_center(column);
+                h4{
+                    @include h4;
+                    color: $grey;
+                    margin-bottom: 16px;
+                    text-align: center;
+                }
+                .read_more{
+                    @include flex_gap(row, auto, space-around);
+                    a{
+                        @include a_button($primary);
+                        @include h4;
+                        @include flex_center(none);
+                    }
+            
+                }
+
+            }
+        }
+    }
+}
+footer{
+    .demo{
+        
+        @include flex_center(column);
+        background-color: $silver;
+        height: 300px;
+        h1{
+            @include h1;
+            color: $secondary;
+            width: 887px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        div{
+                width: 151px;
+                height: 52px;
+                background-color: $primary;
+                border-radius: 4px;
+                @include flex_center(row);
+                a{
+                    @include flex_center(row);
+                    @include a_button($white);
+                    gap: 10px;
+                }
+            }
+    }
+    .footer_elements{
+        background-color: $secondary;
+        height: 328px;
+        color: $white;
+        @include grid_template(columns, 3);
+        padding: 64px 165px;
+        align-items: start;
+        .logo_copyrights{
+            width: 350px;
+            @include flex_gap(column, 40px, none){
+                align-items: start;
+            };
+            .all_rights{
+                margin-top: -32px;
+            }
+            .social_media{
+                display: flex;
+                gap: 16px;
+            }
+        }
+        .company_support{
+            @include grid_template(columns, 2);
+            ul{
+                
+                margin-right: 30px;
+                li{
+                    list-style: none;
+                    margin-bottom: 12px;
+                }
+                :first-child{
+                    @include h4;
+                    margin-bottom: 24px;
+                }
+            }
+        }
+        .news_subscription{
+            margin-left: 30px;
+            h4{
+                @include h4;
+                margin-bottom: 24px;
+            }
+            input[type="email"]{
+                width: 255px;
+                height: 40px;
+                padding: 9px 12px;
+                border-radius: 8px;
+                border-style: none;
+                background-color: $grey;
+                color: white;
+                @include r3;
+                background-image: url(Assets/images/send.svg);
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+            }
+        }
+    }
+}

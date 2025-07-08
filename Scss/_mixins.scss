@@ -1,0 +1,44 @@
+@mixin flex_center($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+    @content;
+}
+@mixin grid_template($direction, $number){
+    display: grid;
+    align-items: center;
+    @if $direction == rows{
+        @if $number == 1{
+            grid-template-rows: 1fr;
+        }@else if $number == 2{
+            grid-template-rows: 1fr 1fr;
+        }@else if $number == 3{
+            grid-template-rows: 1fr 1fr 1fr;
+        }@else if $number == 4{
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+        }
+    } @else if $direction == columns{
+        @if $number == 1{
+            grid-template-columns: 1fr;
+        } @else if $number == 2{
+            grid-template-columns: 1fr 1fr;
+        } @else if $number == 3{
+            grid-template-columns: 1fr 1fr 1fr;
+        } @else if $number == 4{
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    }
+}
+@mixin flex_gap($direction, $gap, $spacing){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $spacing;
+    align-items: center;
+    gap: $gap;
+    @content;
+}
+@mixin a_button($color){
+    text-decoration: none;
+    color: $color;
+}
